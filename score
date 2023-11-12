@@ -1,0 +1,50 @@
+#!/bin/bash
+score_report="/home/jack/Desktop/ScoreReport.html"
+function check()
+{
+        if ( eval $1 ); then
+                if (cat $score_report | grep $2); then
+                        sed -i "$3/$2/$4/g" $score_report
+                fi
+        elif ( ! eval $1 ); then 
+                if (! cat $score_report | "grep $2</p>"); then
+                        sed -i "$3/$4/$2/g" $score_report
+                fi
+        fi
+}
+
+#Forensics
+check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln1' '21s' 'Forensics 1 Correct'
+check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln2' '22s' 'Forensics 2 Correct'
+check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln1' '35s' 'Forensics 3 Correct'
+check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln2' '36s' 'Forensics 4 Correct'
+check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln1' '53s' 'Forensics 5 Correct'
+check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln2' '54s' 'Forensics 6 Correct'
+check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln1' '77s' 'Forensics 7 Correct'
+check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln2' '78s' 'Forensics 8 Correct'
+
+#Base OS
+check '! cat /etc/group | grep "Ginger"' 'vuln3' '21s' 'User Ginger removed'
+check '! cat /etc/group | grep "sudo" | grep "Will"' 'vuln4' '22s' 'User Will is not an admin'
+check 'cat /etc/group | grep "Training_Leads"' 'vuln5' '23s' 'Group Training_Leads added'
+check 'cat /etc/group | grep "Training_Leads" | grep "James"' 'vuln6' '24s' 'User James added to group Training_Leads'
+check 'ufw status | grep "active"' 'vuln7' '25s' 'Firewall turned on'
+check 'ufw status verbose | grep "high"' 'vuln8' '26s' 'Firewall logging set to high'
+check 'cat /etc/login.defs | grep "PASS_MAX_DAYS" | grep "90"' 'vuln9' '27s' 'Maximum password age set'
+check 'cat /etc/pam.d/common-password | grep "unix.so" | grep "minlen=16"' 'vuln10' '28s' 'Minimum password length set'
+check 'cat /etc/pam.d/common-auth | grep "deny=5"' 'vuln11' '29s' 'Maximum number of login attempts set'
+check '! cat /etc/sudoers | grep "NOPASSWD"' 'vuln12' '30s' 'Insecure sudoers configuration removed'
+check '! dpkg -l | grep "apache2"' 'vuln13' '31s' 'Apache2 removed'
+check '! dpkg -l | grep "netcat"' 'vuln14' '32s' 'Netcat removed'
+check '! cat /var/spool/cron/crontabs/root | grep "netcat"' 'vuln15' '33s' 'Bad cronjob removed'
+
+#SSH
+check 'cat /etc/ssh/sshd_config | grep "Protocol 2"' 'vuln16' '34s' 'SSH uses protocol 2'
+check 'cat /etc/ssh/sshd_config | grep "Port 22"' 'vuln17' '35s' 'SSH runs on port 22'
+check '! cat /etc/ssh/sshd_config | grep "X11Forwarding yes"' 'vuln18' '36s' 'SSH X11 forwarding disabled'
+
+#FTP
+check 'cat /etc/ftpusers | grep "Will"' 'vuln19' '37s' 'User Will is no longer allowed to access the ftp server'
+check 'cat /etc/ftpusers | grep "Aidan"' 'vuln20' '38s' 'User Aidan is no longer allowed to access the ftp server'
+check 'cat /etc/vsftpd.conf | grep "anonymous_enable=NO"' 'vuln21' '39s' 'Anonymous connections to the ftp server disabled'
+check 'cat /etc/vsftpd.conf | grep "ssl_enable=YES"' 'vuln22' '40s' 'SSL protection enabled for the ftp server'
