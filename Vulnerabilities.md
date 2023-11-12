@@ -4,7 +4,7 @@
 Forensics 1 and 2
 Firewall enabled
 Firewall logs all traffic
-Removed the user Will from the adm group
+Removed the user Ofoe from the adm group
 Removed the user Sessa
 User Link created
 Default minimum password age set
@@ -17,7 +17,7 @@ Removed bad media file
 Forensics 3 and 4
 Port 22 is allowed
 Port 443 is allowed
-Removed the hidden user Ginger
+Removed the hidden user Wachter
 Removed malicious bash script x2
 sysctl.conf x3
 apt gets packages from the correct repository
