@@ -25,6 +25,7 @@ apt gets packages from the correct repository
 Malicious alias removed x3
 Removed malicious sudoers configuration
 Removed bad media file
+Removed malicious cronjob
 
 
 
@@ -46,10 +47,8 @@ Removed malicious SUID permissions on binary files
 
 
 ## Advanced:
-Forensics 7
+Forensics 7 and 8
 Changed malicious IP tables configuration
 Removed Bind9
-Machine is disconnected from LDAP server
-
-
-49
+SSH public key imported from the ftp server
+Necessary files imported from ftp server and placed in /srv/ftp x2
