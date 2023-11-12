@@ -1,4 +1,5 @@
 #!/bin/bash
+apt install gcc
 score_report="/home/jack/Desktop/ScoreReport.html"
 function check()
 {
@@ -16,32 +17,53 @@ function check()
 #Forensics
 check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln1' '21s' 'Forensics 1 Correct'
 check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln2' '22s' 'Forensics 2 Correct'
-check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln1' '35s' 'Forensics 3 Correct'
-check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln2' '36s' 'Forensics 4 Correct'
-check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln1' '53s' 'Forensics 5 Correct'
-check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln2' '54s' 'Forensics 6 Correct'
+check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln14' '35s' 'Forensics 3 Correct'
+check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln15' '36s' 'Forensics 4 Correct'
+check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln31' '53s' 'Forensics 5 Correct'
+check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln32' '54s' 'Forensics 6 Correct'
 check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln1' '77s' 'Forensics 7 Correct'
 check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln2' '78s' 'Forensics 8 Correct'
 
-#Base OS
-check '! cat /etc/group | grep "Ginger"' 'vuln3' '21s' 'User Ginger removed'
-check '! cat /etc/group | grep "sudo" | grep "Will"' 'vuln4' '22s' 'User Will is not an admin'
-check 'cat /etc/group | grep "Training_Leads"' 'vuln5' '23s' 'Group Training_Leads added'
-check 'cat /etc/group | grep "Training_Leads" | grep "James"' 'vuln6' '24s' 'User James added to group Training_Leads'
-check 'ufw status | grep "active"' 'vuln7' '25s' 'Firewall turned on'
-check 'ufw status verbose | grep "high"' 'vuln8' '26s' 'Firewall logging set to high'
-check 'cat /etc/login.defs | grep "PASS_MAX_DAYS" | grep "90"' 'vuln9' '27s' 'Maximum password age set'
-check 'cat /etc/pam.d/common-password | grep "unix.so" | grep "minlen=16"' 'vuln10' '28s' 'Minimum password length set'
-check 'cat /etc/pam.d/common-auth | grep "deny=5"' 'vuln11' '29s' 'Maximum number of login attempts set'
-check '! cat /etc/sudoers | grep "NOPASSWD"' 'vuln12' '30s' 'Insecure sudoers configuration removed'
-check '! dpkg -l | grep "apache2"' 'vuln13' '31s' 'Apache2 removed'
-check '! dpkg -l | grep "netcat"' 'vuln14' '32s' 'Netcat removed'
-check '! cat /var/spool/cron/crontabs/root | grep "netcat"' 'vuln15' '33s' 'Bad cronjob removed'
+#Easy
+check '! ufw status | grep "inactive"' 'vuln3' '23s' 'Firewall enabled'
+check 'ufw status verbose | grep "high"' 'vuln4' '24s' 'Firewall logs all traffic'
+check '! cat /etc/group | grep "adm" | grep Ofoe' 'vuln5' '25s' 'Ofoe is not an admin'
+check '! cat /etc/group | grep "Corey"' 'vuln6' '26s' 'User Corey Removed'
+check 'cat /etc/group | grep "Link"' 'vuln7' '27s' 'User Link Added'
+check 'cat /etc/login.defs | grep "PASS_MAX_DAYS" | grep "90"' 'vuln8' '28s' 'Maximum password age set'
+check 'cat /etc/pam.d/common-password | grep "unix.so" | grep "minlen=16"' 'vuln9' '29s' 'Minimum password length set'
+check 'cat /etc/ssh/sshd_config | grep "StrictMode no"' 'vuln10' '30s' 'SSH strict mode set to yes'
+check 'cat /etc/ssh/sshd_config | grep "PermitEmptyPasswords no"' 'vuln11' '31s' 'SSH does not allow empty passwords'
+check 'cat /etc/ssh/sshd_config | grep "UsePAM yes"' 'vuln12' '32s' 'SSH uses PAM'
+check '! ls /home/jack/Desktop | grep "MMC.jpeg"' 'vuln13' '33s' 'Unauthorized media file removed'
 
-#SSH
-check 'cat /etc/ssh/sshd_config | grep "Protocol 2"' 'vuln16' '34s' 'SSH uses protocol 2'
-check 'cat /etc/ssh/sshd_config | grep "Port 22"' 'vuln17' '35s' 'SSH runs on port 22'
-check '! cat /etc/ssh/sshd_config | grep "X11Forwarding yes"' 'vuln18' '36s' 'SSH X11 forwarding disabled'
+#Medium
+check 'ufw status verbose | grep "22"' 'vuln16' '37s' 'Traffic along 22 is allowed'
+check 'ufw status verbose | grep "443"' 'vuln17' '38s' 'Traffic along 443 is allowed'
+check '! cat /etc/group | grep "Wachter"' 'vuln18' '39s' 'Hidden user Wachter removed'
+check '! ls /lib | grep "important.sh"' 'vuln19' '40s' 'Malicious bash script removed'
+check '! ls /srv | grep "backdoor.sh"' 'vuln20' '41s' 'Malicious bash script removed'
+check 'cat /etc/sysctl.conf | grep "net.ipv4.conf.all.log_martians = 1"' 'vuln21' '42s' 'Sysctl logs martians'
+check 'cat /etc/sysctl.conf | grep "net.ipv4.icmp_echo_ignore_broadcasts = 1"' 'vuln22' '43s' 'Sysctl ignores broadcast messages'
+check 'cat /etc/sysctl.conf | grep "net.ipv4.conf.all.rp_filter = 1"' 'vuln23' '44s' 'Sysctl spoofing protection enabled'
+check 'cat /etc/apt/sources.list | grep "focal"' 'vuln24' '45s' 'Correct apt repository'
+check '! cat /root/.bashrc | grep "ncat"' 'vuln25' '46s' 'Malicious alias removed'
+check '! cat /root/.bashrc | grep "deluge"' 'vuln26' '47s' 'Malicious alias removed'
+check '! cat /home/jack/.bashrc | grep "sudo"' 'vuln27' '48s' 'Annoying alias removed'
+check 'ls / | grep "haha.png"' 'vuln28' '49s' 'Unauthorized media file removed'
+check '! cat /var/spool/cron/crontabs/root | grep "ncat"' 'vuln29' '50s' 'Malicious cronjobs removed'
+check '! cat /etc/sudoers | grep "NOPASSWD"' 'vuln30' '51s' 'Insecure sudoers configuration removed'
+
+#Hard
+check '! cat /etc/group | grep "deamon"' 'vuln33' '55s' 'Removed hidden user deamon'
+check 'ls -l /etc/ssh/sshd_config | grep "-rw-r-----"' 'vuln34' '56s' 'Correct permissions on sshd_config'
+check 'ls -ld /var/tmp | grep "drwxrwxrwt"' 'vuln35' '57s' 'Stickybit set'
+check 'auditctl -s | grep "enabled 1"' 'vuln36' '58s' 'Audits enabled'
+
+
+
+
+
 
 #FTP
 check 'cat /etc/ftpusers | grep "Will"' 'vuln19' '37s' 'User Will is no longer allowed to access the ftp server'
