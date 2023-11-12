@@ -6,7 +6,7 @@ Firewall enabled
 Firewall logs all traffic
 Removed the user Will from the adm group
 Removed the user Sessa
-User James has a strong password (?)
+User Link created
 Default minimum password age set
 Default minimum password length set
 SSH is configured correctly x3
@@ -18,8 +18,7 @@ Forensics 3 and 4
 Port 22 is allowed
 Port 443 is allowed
 Removed the hidden user Ginger
-Removed Steam (?)
-Removed Virtual Box (?)
+Removed malicious bash script x2
 sysctl.conf x3
 apt gets packages from the correct repository
 Malicious alias removed x3
