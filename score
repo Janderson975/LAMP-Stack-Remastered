@@ -15,8 +15,8 @@ function check()
 }
 
 #Forensics
-check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln1' '21s' 'Forensics 1 Correct'
-check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln2' '22s' 'Forensics 2 Correct'
+check 'cat /home/jack/Desktop/Forensics_1 | grep "Family of creatures that have learnt to bulk up with moss and live as one."' 'vuln1' '21s' 'Forensics 1 Correct'
+check 'cat /home/jack/Desktop/Forensics_2 | grep "All 4 One"' 'vuln2' '22s' 'Forensics 2 Correct'
 check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln14' '35s' 'Forensics 3 Correct'
 check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln15' '36s' 'Forensics 4 Correct'
 check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln31' '53s' 'Forensics 5 Correct'
@@ -59,8 +59,9 @@ check '! cat /etc/group | grep "deamon"' 'vuln33' '55s' 'Removed hidden user dea
 check 'ls -l /etc/ssh/sshd_config | grep "-rw-r-----"' 'vuln34' '56s' 'Correct permissions on sshd_config'
 check 'ls -ld /var/tmp | grep "drwxrwxrwt"' 'vuln35' '57s' 'Stickybit set'
 check 'auditctl -s | grep "enabled 1"' 'vuln36' '58s' 'Audits enabled'
-
-
+check '! ls /var/lib/mysql/mysql | grep "userpass.ibd"' 'vuln37' '59s' 'Removed mysql database containing plaintext password'
+check '! cat /etc/profile | grep "ncat"' 'vuln38' '60s' 'Removed malicious /etc/profile configuration'
+check 'cat /etc/fstab | grep "/rn/shm"' 'vuln39' '61s' 'Fork bomb protection put in place'
 
 
 
