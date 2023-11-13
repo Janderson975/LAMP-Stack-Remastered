@@ -21,8 +21,8 @@ check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vul
 check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln15' '36s' 'Forensics 4 Correct'
 check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln31' '53s' 'Forensics 5 Correct'
 check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln32' '54s' 'Forensics 6 Correct'
-check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln1' '77s' 'Forensics 7 Correct'
-check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln2' '78s' 'Forensics 8 Correct'
+check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln55' '77s' 'Forensics 7 Correct'
+check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln56' '78s' 'Forensics 8 Correct'
 
 #Easy
 check '! ufw status | grep "inactive"' 'vuln3' '23s' 'Firewall enabled'
@@ -62,12 +62,20 @@ check 'auditctl -s | grep "enabled 1"' 'vuln36' '58s' 'Audits enabled'
 check '! ls /var/lib/mysql/mysql | grep "userpass.ibd"' 'vuln37' '59s' 'Removed mysql database containing plaintext password'
 check '! cat /etc/profile | grep "ncat"' 'vuln38' '60s' 'Removed malicious /etc/profile configuration'
 check 'cat /etc/fstab | grep "/rn/shm"' 'vuln39' '61s' 'Fork bomb protection put in place'
+check 'cat /etc/apache2/conf-enabled/security.conf | grep "ServerSignature Off"' 'vuln40' '62s' 'Apache2 server signature turned off'
+check 'cat /etc/apache2/apache2.conf | grep "LogLevel warn"' 'vuln41' '63s' 'Apache2 logs important information'
+check 'cat /etc/apache2/apache2.conf | grep "KeepAlive Off"' 'vuln42' '64s' 'Apache2 Keep-Alive disabled'
+check 'cat /etc/apache2/ports.conf | grep "port 443"' 'vuln43' '65s' 'Apache2 runs on 443'
+check 'cat /etc/apache2/apache2.conf | grep "SSLProtocol all -SSLv2 -SSLv3"' 'vuln44' '66s' 'Apache2 uses the correct ssl versions'
 
 
 
+#Advanced
+check '! dpkg -l | grep "Bind9"' 'vuln57' '79s' 'Bind9 Removed'
+check '! dpkg -l | grep "Bind9"' 'vuln58' '80s' 'Malicious IP tables configuration removed'
+check '! dpkg -l | grep "Bind9"' 'vuln59' '79s' 'SSH public key placed into correct file'
+check '! dpkg -l | grep "Bind9"' 'vuln60' '79s' 'Neccessary file imported from the ftp server'
+check '! dpkg -l | grep "Bind9"' 'vuln61' '79s' 'Neccessary file imported from the ftp server'
 
-#FTP
-check 'cat /etc/ftpusers | grep "Will"' 'vuln19' '37s' 'User Will is no longer allowed to access the ftp server'
-check 'cat /etc/ftpusers | grep "Aidan"' 'vuln20' '38s' 'User Aidan is no longer allowed to access the ftp server'
-check 'cat /etc/vsftpd.conf | grep "anonymous_enable=NO"' 'vuln21' '39s' 'Anonymous connections to the ftp server disabled'
-check 'cat /etc/vsftpd.conf | grep "ssl_enable=YES"' 'vuln22' '40s' 'SSL protection enabled for the ftp server'
+
+
