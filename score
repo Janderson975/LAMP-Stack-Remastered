@@ -68,16 +68,23 @@ check 'cat /etc/apache2/apache2.conf | grep "KeepAlive Off"' 'vuln42' '64s' 'Apa
 check 'cat /etc/apache2/ports.conf | grep "port 443"' 'vuln43' '65s' 'Apache2 runs on 443'
 check 'cat /etc/apache2/apache2.conf | grep "SSLProtocol all -SSLv2 -SSLv3"' 'vuln44' '66s' 'Apache2 uses the correct ssl versions'
 check 'cat /etc/mysql/my.cnf | grep "port" | grep "3306"' 'vuln45' '67s' 'MySQL runs on the right port'
-check 'cat /etc/mysql/my.cnf | grep "socket" | grep "/var/run/mysqld/mysqld.sock"' 'vuln45' '67s' 'MySQL socket file is correct'
+check 'cat /etc/mysql/my.cnf | grep "socket" | grep "/var/run/mysqld/mysqld.sock"' 'vuln46' '68s' 'MySQL socket file is correct'
+check 'cat /etc/mysql/my.cnf | grep "log_error" | grep "/var/log/mysql/error.log"' 'vuln47' '69s' 'MySQL socket file is correct'
+check 'cat /etc/php/7.4/apache2/php.ini | grep "engine" | grep "On"' 'vuln48' '70s' 'PHP turned on'
+check 'cat /etc/php/7.4/apache2/php.ini | grep "implicit_flush" | grep "Off"' 'vuln49' '71s' 'PHP does not automatically flush commands'
+check 'cat /etc/php/7.4/apache2/php.ini | grep "expose_php" | grep "Off"' 'vuln50' '72s' 'PHP is no longer exposed'
+check 'cat /etc/samba/smb.conf | grep "obey pam restrictions" | grep "yes"' 'vuln51' '73s' 'Samba uses PAM'
+check 'cat /etc/samba/smb.conf | grep "map tp guest" | grep "bad user"' 'vuln52' '74s' 'Samba correctly maps guest'
+check 'cat /etc/samba/smb.conf | grep "usershare allow guests" | grep "no"' 'vuln53' '75s' 'Samba does not allow guests'
+check 'ls -l /usr/bin/cp | grep "-rwxr-xr-x"' 'vuln54' '76s' 'SUID removed on cp command'
 
 
 
 #Advanced
 check '! dpkg -l | grep "Bind9"' 'vuln57' '79s' 'Bind9 Removed'
-check '! dpkg -l | grep "Bind9"' 'vuln58' '80s' 'Malicious IP tables configuration removed'
-check '! dpkg -l | grep "Bind9"' 'vuln59' '79s' 'SSH public key placed into correct file'
-check '! dpkg -l | grep "Bind9"' 'vuln60' '79s' 'Neccessary file imported from the ftp server'
-check '! dpkg -l | grep "Bind9"' 'vuln61' '79s' 'Neccessary file imported from the ftp server'
+check 'cat /home/jack/.ssh/authorized_keys | grep "jack@lampserver"' 'vuln59' '79s' 'SSH public key placed into correct file'
+check 'cat /srv/ftp | grep "important"' 'vuln60' '79s' 'Neccessary file imported from the ftp server'
+check 'cat /srv/ftp | grep "finished"' 'vuln61' '79s' 'Neccessary file imported from the ftp server'
 
 
 
