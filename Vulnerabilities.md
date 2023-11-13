@@ -37,7 +37,7 @@ Audits set up
 Malicious mySQL table removed
 Removed backdoor in /etc/profile.d
 Forkbomb protection put into place
-Apache2 set to its own directory
+Apache2 
 Apache2 is configured correctly x3
 MySQL is configured correctly x3
 PHP is configured correctly x3
