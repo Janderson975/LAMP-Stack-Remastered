@@ -36,9 +36,8 @@ Stickybit set
 Audits set up
 Malicious mySQL table removed
 Removed backdoor in /etc/profile.d
-Forkbomb protection put into place
-Apache2 
-Apache2 is configured correctly x3
+Forkbomb protection put into place 
+Apache2 is configured correctly x4
 MySQL is configured correctly x3
 PHP is configured correctly x3
 Samba is configured correctly x3
