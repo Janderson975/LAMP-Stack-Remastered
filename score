@@ -21,8 +21,8 @@ check 'cat /home/jack/Desktop/Forensics_1 | grep "Divine"' 'vuln14' '35s' 'Foren
 check 'cat /home/jack/Desktop/Forensics_2 | grep "/var/spool/cron/crontabs/root"' 'vuln15' '36s' 'Forensics 4 Correct'
 check 'cat /home/jack/Desktop/Forensics_1 | grep "how many layers can you work through"' 'vuln31' '53s' 'Forensics 5 Correct'
 check 'cat /home/jack/Desktop/Forensics_2 | grep "Steep Morale"' 'vuln32' '54s' 'Forensics 6 Correct'
-check 'cat /home/jack/Desktop/Forensics_1 | grep "/srv/ftpuser"' 'vuln55' '77s' 'Forensics 7 Correct'
-check 'cat /home/jack/Desktop/Forensics_2 | grep "LAMP.server.com"' 'vuln56' '78s' 'Forensics 8 Correct'
+check 'cat /home/jack/Desktop/Forensics_1 | grep "/srv/ftpuser"' 'vuln55' '78s' 'Forensics 7 Correct'
+check 'cat /home/jack/Desktop/Forensics_2 | grep "LAMP.server.com"' 'vuln56' '79s' 'Forensics 8 Correct'
 
 #Easy
 check '! ufw status | grep "inactive"' 'vuln3' '23s' 'Firewall enabled'
@@ -81,10 +81,10 @@ check 'ls -l /usr/bin/cp | grep "-rwxr-xr-x"' 'vuln54' '76s' 'SUID removed on cp
 
 
 #Advanced
-check '! dpkg -l | grep "Bind9"' 'vuln57' '79s' 'Bind9 Removed'
-check 'cat /home/jack/.ssh/authorized_keys | grep "jack@lampserver"' 'vuln59' '79s' 'SSH public key placed into correct file'
-check 'cat /srv/ftp | grep "important"' 'vuln60' '79s' 'Neccessary file imported from the ftp server'
-check 'cat /srv/ftp | grep "finished"' 'vuln61' '79s' 'Neccessary file imported from the ftp server'
+check '! dpkg -l | grep "Bind9"' 'vuln57' '80s' 'Bind9 Removed'
+check 'cat /home/jack/.ssh/authorized_keys | grep "jack@lampserver"' 'vuln58' '81s' 'SSH public key placed into correct file'
+check 'cat /srv/ftp | grep "important"' 'vuln59' '82s' 'Neccessary file imported from the ftp server'
+check 'cat /srv/ftp | grep "finished"' 'vuln60' '83s' 'Neccessary file imported from the ftp server'
 
 
 
