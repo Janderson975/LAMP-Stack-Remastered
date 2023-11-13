@@ -5,7 +5,7 @@ Forensics 1 and 2
 Firewall enabled
 Firewall logs all traffic
 Removed the user Ofoe from the adm group
-Removed the user Sessa
+Removed the user Corey
 User Link created
 Default minimum password age set
 Default minimum password length set
