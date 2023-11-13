@@ -17,12 +17,12 @@ function check()
 #Forensics
 check 'cat /home/jack/Desktop/Forensics_1 | grep "Family of creatures that have learnt to bulk up with moss and live as one."' 'vuln1' '21s' 'Forensics 1 Correct'
 check 'cat /home/jack/Desktop/Forensics_2 | grep "All 4 One"' 'vuln2' '22s' 'Forensics 2 Correct'
-check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln14' '35s' 'Forensics 3 Correct'
-check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln15' '36s' 'Forensics 4 Correct'
-check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln31' '53s' 'Forensics 5 Correct'
-check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln32' '54s' 'Forensics 6 Correct'
-check 'cat /home/jack/Desktop/Forensics_1 | grep "cryptography is so cool"' 'vuln55' '77s' 'Forensics 7 Correct'
-check 'cat /home/jack/Desktop/Forensics_2 | grep "You know stenography now!"' 'vuln56' '78s' 'Forensics 8 Correct'
+check 'cat /home/jack/Desktop/Forensics_1 | grep "Divine"' 'vuln14' '35s' 'Forensics 3 Correct'
+check 'cat /home/jack/Desktop/Forensics_2 | grep "/var/spool/cron/crontabs/root"' 'vuln15' '36s' 'Forensics 4 Correct'
+check 'cat /home/jack/Desktop/Forensics_1 | grep "how many layers can you work through"' 'vuln31' '53s' 'Forensics 5 Correct'
+check 'cat /home/jack/Desktop/Forensics_2 | grep "Steep Morale"' 'vuln32' '54s' 'Forensics 6 Correct'
+check 'cat /home/jack/Desktop/Forensics_1 | grep "/srv/ftpuser"' 'vuln55' '77s' 'Forensics 7 Correct'
+check 'cat /home/jack/Desktop/Forensics_2 | grep "LAMP.server.com"' 'vuln56' '78s' 'Forensics 8 Correct'
 
 #Easy
 check '! ufw status | grep "inactive"' 'vuln3' '23s' 'Firewall enabled'
@@ -67,6 +67,8 @@ check 'cat /etc/apache2/apache2.conf | grep "LogLevel warn"' 'vuln41' '63s' 'Apa
 check 'cat /etc/apache2/apache2.conf | grep "KeepAlive Off"' 'vuln42' '64s' 'Apache2 Keep-Alive disabled'
 check 'cat /etc/apache2/ports.conf | grep "port 443"' 'vuln43' '65s' 'Apache2 runs on 443'
 check 'cat /etc/apache2/apache2.conf | grep "SSLProtocol all -SSLv2 -SSLv3"' 'vuln44' '66s' 'Apache2 uses the correct ssl versions'
+check 'cat /etc/mysql/my.cnf | grep "port" | grep "3306"' 'vuln45' '67s' 'MySQL runs on the right port'
+check 'cat /etc/mysql/my.cnf | grep "socket" | grep "/var/run/mysqld/mysqld.sock"' 'vuln45' '67s' 'MySQL socket file is correct'
 
 
 
