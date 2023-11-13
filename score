@@ -50,7 +50,7 @@ check 'cat /etc/apt/sources.list | grep "focal"' 'vuln24' '45s' 'Correct apt rep
 check '! cat /root/.bashrc | grep "ncat"' 'vuln25' '46s' 'Malicious alias removed'
 check '! cat /root/.bashrc | grep "deluge"' 'vuln26' '47s' 'Malicious alias removed'
 check '! cat /home/jack/.bashrc | grep "sudo"' 'vuln27' '48s' 'Annoying alias removed'
-check 'ls / | grep "haha.png"' 'vuln28' '49s' 'Unauthorized media file removed'
+check '! ls / | grep "haha.png"' 'vuln28' '49s' 'Unauthorized media file removed'
 check '! cat /var/spool/cron/crontabs/root | grep "ncat"' 'vuln29' '50s' 'Malicious cronjobs removed'
 check '! cat /etc/sudoers | grep "NOPASSWD"' 'vuln30' '51s' 'Insecure sudoers configuration removed'
 
