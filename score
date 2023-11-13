@@ -81,7 +81,7 @@ check 'ls -l /usr/bin/cp | grep "-rwxr-xr-x"' 'vuln54' '76s' 'SUID removed on cp
 
 
 #Advanced
-check '! dpkg -l | grep "Bind9"' 'vuln57' '80s' 'Bind9 Removed'
+check '! dpkg -l | grep "ncat"' 'vuln57' '80s' 'Ncat Removed'
 check 'cat /home/jack/.ssh/authorized_keys | grep "jack@lampserver"' 'vuln58' '81s' 'SSH public key placed into correct file'
 check 'cat /srv/ftp | grep "important"' 'vuln59' '82s' 'Neccessary file imported from the ftp server'
 check 'cat /srv/ftp | grep "finished"' 'vuln60' '83s' 'Neccessary file imported from the ftp server'
