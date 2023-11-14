@@ -74,7 +74,7 @@ check 'cat /etc/php/7.4/apache2/php.ini | grep "engine" | grep "On"' 'vuln48' '7
 check 'cat /etc/php/7.4/apache2/php.ini | grep "implicit_flush" | grep "Off"' 'vuln49' '71s' 'PHP does not automatically flush commands'
 check 'cat /etc/php/7.4/apache2/php.ini | grep "expose_php" | grep "Off"' 'vuln50' '72s' 'PHP is no longer exposed'
 check 'cat /etc/samba/smb.conf | grep "obey pam restrictions" | grep "yes"' 'vuln51' '73s' 'Samba uses PAM'
-check 'cat /etc/samba/smb.conf | grep "map tp guest" | grep "bad user"' 'vuln52' '74s' 'Samba correctly maps guest'
+check 'cat /etc/samba/smb.conf | grep "map to guest" | grep "bad user"' 'vuln52' '74s' 'Samba correctly maps guest'
 check 'cat /etc/samba/smb.conf | grep "usershare allow guests" | grep "no"' 'vuln53' '75s' 'Samba does not allow guests'
 check 'ls -l /usr/bin/cp | grep "\-rwxr-xr-x"' 'vuln54' '76s' 'SUID removed on cp command'
 
