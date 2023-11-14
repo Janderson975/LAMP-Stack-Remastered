@@ -17,12 +17,12 @@ function check()
 #Forensics
 check 'cat /home/jack/Desktop/Forensics_1 | grep "Family of creatures that have learnt to bulk up with moss and live as one."' 'vuln1' '21s' 'Forensics 1 Correct'
 check 'cat /home/jack/Desktop/Forensics_2 | grep "All 4 One"' 'vuln2' '22s' 'Forensics 2 Correct'
-check 'cat /home/jack/Desktop/Forensics_1 | grep "Divine"' 'vuln14' '35s' 'Forensics 3 Correct'
-check 'cat /home/jack/Desktop/Forensics_2 | grep "/var/spool/cron/crontabs/root"' 'vuln15' '36s' 'Forensics 4 Correct'
-check 'cat /home/jack/Desktop/Forensics_1 | grep "how many layers can you work through"' 'vuln31' '53s' 'Forensics 5 Correct'
-check 'cat /home/jack/Desktop/Forensics_2 | grep "Steep Morale"' 'vuln32' '54s' 'Forensics 6 Correct'
-check 'cat /home/jack/Desktop/Forensics_1 | grep "/srv/ftpuser"' 'vuln55' '78s' 'Forensics 7 Correct'
-check 'cat /home/jack/Desktop/Forensics_2 | grep "LAMP.server.com"' 'vuln56' '79s' 'Forensics 8 Correct'
+check 'cat /home/jack/Desktop/Forensics_3 | grep "Divine"' 'vuln14' '35s' 'Forensics 3 Correct'
+check 'cat /home/jack/Desktop/Forensics_4 | grep "/var/spool/cron/crontabs/root"' 'vuln15' '36s' 'Forensics 4 Correct'
+check 'cat /home/jack/Desktop/Forensics_5 | grep "how many layers can you work through"' 'vuln31' '53s' 'Forensics 5 Correct'
+check 'cat /home/jack/Desktop/Forensics_6 | grep "Steep Morale"' 'vuln32' '54s' 'Forensics 6 Correct'
+check 'cat /home/jack/Desktop/Forensics_7 | grep "/srv/ftpuser"' 'vuln55' '78s' 'Forensics 7 Correct'
+check 'cat /home/jack/Desktop/Forensics_8 | grep "LAMP.server.com"' 'vuln56' '79s' 'Forensics 8 Correct'
 
 #Easy
 check 'ufw status verbose | grep "skip"' 'vuln3' '23s' 'Firewall enabled'
@@ -76,7 +76,7 @@ check 'cat /etc/php/7.4/apache2/php.ini | grep "expose_php" | grep "Off"' 'vuln5
 check 'cat /etc/samba/smb.conf | grep "obey pam restrictions" | grep "yes"' 'vuln51' '73s' 'Samba uses PAM'
 check 'cat /etc/samba/smb.conf | grep "map tp guest" | grep "bad user"' 'vuln52' '74s' 'Samba correctly maps guest'
 check 'cat /etc/samba/smb.conf | grep "usershare allow guests" | grep "no"' 'vuln53' '75s' 'Samba does not allow guests'
-check 'ls -l /usr/bin/cp | grep "-rwxr-xr-x"' 'vuln54' '76s' 'SUID removed on cp command'
+check 'ls -l /usr/bin/cp | grep "\-rwxr-xr-x"' 'vuln54' '76s' 'SUID removed on cp command'
 
 
 
