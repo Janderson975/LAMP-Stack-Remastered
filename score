@@ -56,11 +56,11 @@ check '! cat /etc/sudoers | grep "NOPASSWD"' 'vuln30' '51s' 'Insecure sudoers co
 
 #Hard
 check '! cat /etc/group | grep "deamon"' 'vuln33' '55s' 'Removed hidden user deamon'
-check 'ls -l /etc/ssh/sshd_config | grep "-rw-r-----"' 'vuln34' '56s' 'Correct permissions on sshd_config'
+check 'ls -l /etc/ssh/sshd_config | grep "\-rw-r-----"' 'vuln34' '56s' 'Correct permissions on sshd_config'
 check 'ls -ld /var/tmp | grep "drwxrwxrwt"' 'vuln35' '57s' 'Stickybit set'
-check 'auditctl -s | grep "enabled 1"' 'vuln36' '58s' 'Audits enabled'
+check 'auditctl -s | grep "enabled 1"' 'vuln36' '58s' 'Audits enabled' #
 check '! ls /var/lib/mysql/mysql | grep "userpass.ibd"' 'vuln37' '59s' 'Removed mysql database containing plaintext password'
-check '! cat /etc/profile | grep "ncat"' 'vuln38' '60s' 'Removed malicious /etc/profile configuration'
+check '! cat /etc/profile | grep "ncat"' 'vuln38' '60s' 'Removed malicious /etc/profile configuration' #
 check 'cat /etc/fstab | grep "/rn/shm"' 'vuln39' '61s' 'Fork bomb protection put in place'
 check 'cat /etc/apache2/conf-enabled/security.conf | grep "ServerSignature Off"' 'vuln40' '62s' 'Apache2 server signature turned off'
 check 'cat /etc/apache2/apache2.conf | grep "LogLevel warn"' 'vuln41' '63s' 'Apache2 logs important information'
@@ -83,8 +83,8 @@ check 'ls -l /usr/bin/cp | grep "\-rwxr-xr-x"' 'vuln54' '76s' 'SUID removed on c
 #Advanced
 check '! dpkg -l | grep "ncat"' 'vuln57' '80s' 'Ncat Removed'
 check 'cat /home/jack/.ssh/authorized_keys | grep "jack@lampserver"' 'vuln58' '81s' 'SSH public key placed into correct file'
-check 'cat /srv/ftp | grep "important"' 'vuln59' '82s' 'Neccessary file imported from the ftp server'
-check 'cat /srv/ftp | grep "finished"' 'vuln60' '83s' 'Neccessary file imported from the ftp server'
+check 'ls /srv/ftp | grep "important"' 'vuln59' '82s' 'Neccessary file imported from the ftp server'
+check 'ls /srv/ftp | grep "finished"' 'vuln60' '83s' 'Neccessary file imported from the ftp server'
 
 
 
